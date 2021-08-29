@@ -21,6 +21,7 @@ class ManoScraperSpiderMiddleware:
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
+
     def process_spider_input(self, response, spider):
         # Called for each response that goes through the spider
         # middleware and into the spider.

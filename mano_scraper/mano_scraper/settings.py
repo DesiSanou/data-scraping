@@ -12,6 +12,8 @@ BOT_NAME = 'mano_scraper'
 SPIDER_MODULES = ['mano_scraper.spiders']
 NEWSPIDER_MODULE = 'mano_scraper.spiders'
 
+LOG_ENABLED = True
+LOG_LEVEL = "WARNING"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'mano_scraper (+http://www.yourdomain.com)'

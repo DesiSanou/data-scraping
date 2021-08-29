@@ -1,26 +1,44 @@
 # site domain
-site_domain: https://www.manomano.fr/
+site_domain: https://www.manomano.fr
 
+# slug of the section to scrape.
+# you can easily change the section to scrape by just changing this value.
+# tested on other section like 'spa-gonflable-2874'
 section_slug: perceuse-1146
-# subpages to visit. use a list like [2,3] for the second and third page, use
 
-other_pages: [2, 3]
+
 # using https://www:manomano:fr/perceuse-1146?page=2:, the slug is 'page'
 page_slug: page
 
-page_main_div: html body div#__next div.ListingLayout_root__1eEtj.Category_root__2S2uA div.ListingLayout_body__3YK-M div.ProductsLayout_root__1bT-H.Products_root__3L0a7.ListingLayout_products__NwzPC
 
+# List of pages to visit. use a list like [2,3] for the second and third page.
+# You can also use [-1] to scrape many successive subpages  of the section.
+
+pages_list: [-1]
+
+# Maximum number of next pages. Used only for other_pages = [-1]
+max_number_pages: 3
+
+#next page link selector. Useful only for other_pages = [-1]
+next_page: ul.pagination_00689b92
+
+# div of products layout
+page_main_div: div.ProductsLayout_root__1bT-H.Products_root__3L0a7.ListingLayout_products__NwzPC
+
+# selector of single product
 single_product_layout:  a.root_11bb9625
 
+# elements out of single_product_info_div
 product_more_info:
   url:
     css: a
     type: attr(href)
 
   brand:
-    css: div.root_a1bc186a.visualDetails_11bb9625 img.brand_a1bc186a
+    css: img.brand_a1bc186a
     type: attr(alt)
 
+# div containing all the most of the information on product
 single_product_info_div: div.contentContainer_11bb9625
 product_info:
   title:
@@ -28,25 +46,25 @@ product_info:
     type: text
 
   price_integer:
-    css: div.root_14117adf.price_11bb9625 span.root_2f0f2a85.euro_2f0f2a85.root_5489989d.main_14117adf span.integer_2f0f2a85
+    css: span.root_2f0f2a85.euro_2f0f2a85.root_5489989d.main_14117adf span.integer_2f0f2a85
     type: text
 
   price_decimal:
-    css: div.root_14117adf.price_11bb9625 span.root_2f0f2a85.euro_2f0f2a85.root_5489989d.main_14117adf sup span.decimal_2f0f2a85
+    css: span.root_2f0f2a85.euro_2f0f2a85.root_5489989d.main_14117adf sup span.decimal_2f0f2a85
     type: text
 
   no_discount_price_integer:
-    css: div.root_14117adf.price_11bb9625 span.root_2f0f2a85.euro_2f0f2a85.root_c90c837f.retail_c90c837f.retail_14117adf span.integer_2f0f2a85
+    css: span.root_2f0f2a85.euro_2f0f2a85.root_c90c837f.retail_c90c837f.retail_14117adf span.integer_2f0f2a85
     type: text
 
   no_discount_price_decimal:
-    css: div.root_14117adf.price_11bb9625 span.root_2f0f2a85.euro_2f0f2a85.root_c90c837f.retail_c90c837f.retail_14117adf span.decimal_2f0f2a85
+    css: span.root_2f0f2a85.euro_2f0f2a85.root_c90c837f.retail_c90c837f.retail_14117adf span.decimal_2f0f2a85
     type: text
 
   rating:
-    css: div.ratingsContainer_8650ece5.ratings_11bb9625 div.root_8392a9ff span.stars_8392a9ff
+    css: span.stars_8392a9ff
     type: attr(aria-label)
 
   number_of_ratings:
-    css: div.ratingsContainer_8650ece5.ratings_11bb9625 div.root_8392a9ff div.root_6af7768f.small_6af7768f.regular_6af7768f.primaryDark_6af7768f
+    css: div.root_8392a9ff div.root_6af7768f.small_6af7768f.regular_6af7768f.primaryDark_6af7768f
     type: text
