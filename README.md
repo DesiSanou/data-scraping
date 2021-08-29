@@ -1,7 +1,8 @@
 ## E-commerce Website  Scraper
 
 This scraper is used to get multiple information on products.  
-Parameters are defined in a yaml file and then run the process via scrapy command line.
+Parameters are defined in a yaml file (data_config.yml).
+You can run the process via scrapy command line.
 This implementation is based on scrapy. For more information on scrapy, see https://docs.scrapy.org/en/latest/index.html
 
 information:

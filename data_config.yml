@@ -13,11 +13,12 @@ page_slug: page
 
 # List of pages to visit. use a list like [2,3] for the second and third page.
 # You can also use [-1] to scrape many successive subpages  of the section.
-
 pages_list: [-1]
 
-# Maximum number of next pages. Used only for other_pages = [-1]
+# Maximum number of  pages. Used only for other_pages = [-1]
 max_number_pages: 3
+
+# In our example: pages_list: [-1] and max_number_pages: 3 is equivalent to [1,2,3]
 
 #next page link selector. Useful only for other_pages = [-1]
 next_page: ul.pagination_00689b92

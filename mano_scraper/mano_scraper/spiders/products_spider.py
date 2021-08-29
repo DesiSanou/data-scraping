@@ -1,5 +1,6 @@
 import logging
 import os
+import time
 
 import scrapy
 import yaml
@@ -17,7 +18,9 @@ class ProductsSpider(scrapy.Spider):
     name = "products"
 
     # Customize the output file format and name
-    custom_settings = {'FEED_FORMAT': 'csv', 'FEED_URI': 'data/manamano_product.csv'}
+    file_name = "mano_mano_products_" + str(time.strftime("%Y_%m_%d_%Hh_%M"))
+    file_extension = "json"
+    custom_settings = {'FEED_FORMAT': file_extension, 'FEED_URI': f'data/{file_name}.{file_extension}'}
 
     def __init__(self):
         super(ProductsSpider, self).__init__()
@@ -37,7 +40,7 @@ class ProductsSpider(scrapy.Spider):
 
         :param response: response of a url request
         :param kwargs: additional parameters possible. see
-        :return:
+
         """
         main_layout = response.css(self.config["page_main_div"])[0]
         single_product_layout = self.config["single_product_layout"]
